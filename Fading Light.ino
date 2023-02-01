@@ -1,4 +1,6 @@
-const int ledPin = 9;
+
+
+const int ledPin = 5;
 int analogValue = 0;
 int brightness = 0;
 
@@ -11,12 +13,12 @@ void setup() {
 
 void loop() {
   analogValue = analogRead(A0);
-  brightness = (analogValue /4) *10;
+  brightness = analogValue /3;
   if (analogValue > 400 && analogValue < 450) {
-    digitalWrite(ledPin, HIGH);
+    digitalWrite(ledPin, brightness);
   }
   else {
-    analogWrite(ledPin, brightness);
+    analogWrite(ledPin, brightness/10);
   }
   Serial.println(analogValue);
 }
